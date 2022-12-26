@@ -11,35 +11,17 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 
 
-# nltk.download('stopwords')
+nltk.download('stopwords')
 
-# print(stopwords.words('english'))
 
 #Data Processing part - We will load the data from the csv file to pandas framework
 dataPath = "training.1600000.processed.noemoticon.csv"
 column_name = ['target','id','date','flag','user', 'text','stemmed_content']
 twitter_data = pd.read_csv(dataPath, names=column_name , encoding='ISO-8859-1') # this will load the data to the variable called 'twitter_data'
 
-#Now we will check the number of rows and columns
-
-#print(twitter_data.shape)
-
-# Now we will print the first 5 row of data just to check
-
-#print(twitter_data.head())
-
-#This will count the number of missing values if there are any
-#print(twitter_data.isnull().sum())
-
-#Now we have to check the number of positive and negative values 
-
-#target_distribution = twitter_data['target'].value_counts()
-
-#print(target_distribution)
-
 #We will convert the target '4' to '1' for convenience
 
-#twitter_data.replace({'target':{4:1}}, inplace=True)
+twitter_data.replace({'target':{4:1}}, inplace=True)
 
 #0-->'Negative'
 #1-->'Positive'
